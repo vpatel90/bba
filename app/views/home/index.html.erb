@@ -1,42 +1,46 @@
 <h1> Using BBA API </h1>
-
+<small> POST = http requests, Post or post = model for hamburger </small>
+<hr/>
 <div class="row">
+  <h3> Admin Console </h3>
   <code>/admin</code>: Access Admin Console
 </div>
 
 <div class="row">
-  <code>/api/posts</code>: Access first page of posts (hamburgers)
+  <div class="col s12 m6">
+    <h3> Post (hamburger) GET requests </h3>
+    <code>/api/posts</code>: Access first page of posts (hamburgers)<br>
+    <code>/api/posts?page=2</code>: Access page by params (hamburgers)<br>
+    <code>/api/posts/:id</code>: Access post at ID (hamburgers)<br>
+  </div>
+  <div class="col s12 m6">
+    <h3> Post (hamburger) POST 😖requests </h3>
+    POST <code>/api/posts</code>: Add new post (hamburger place)<br>
+    Acceptable Params:
+    <li>post[title]</li>
+    <li>post[description] </li>
+    <li>post[location] </li>
+    <li>post[pic] </li>
+    <li>post[user_id] </li>
+  </div>
+  <div class="col s12 m6">
+    <h3> Post (hamburger) PUT requests </h3>
+    PUT<code>/api/posts/:id</code>: Edits post at given ID(hamburger place)<br>
+    Acceptable Params:
+    <li>post[title]</li>
+    <li>post[description] </li>
+    <li>post[location] </li>
+    <li>post[pic] </li>
+    <li>post[user_id] </li>
+  </div>
+  <div class="col s12 m6">
+    <h3> Post (hamburger) DELETE requests </h3>
+    DELETE<code>/api/posts/:id</code>: Deletes post at given ID(hamburger place)<br>
+  </div>
 </div>
 
 <div class="row">
-  <code>/api/posts?page=2</code>: Access page by params (hamburgers)
-</div>
-
-<div class="row">
-  POST <code>/api/posts</code>: Add new post (hamburger place)<br>
-  Acceptable Params:
-  <li>post[title]</li>
-  <li>post[description] </li>
-  <li>post[location] </li>
-  <li>post[pic] </li>
-  <li>post[user_id] </li>
-</div>
-
-<div class="row">
-  PUT<code>/api/posts/:id</code>: Edits post at given ID(hamburger place)<br>
-  Acceptable Params:
-  <li>post[title]</li>
-  <li>post[description] </li>
-  <li>post[location] </li>
-  <li>post[pic] </li>
-  <li>post[user_id] </li>
-</div>
-
-<div class="row">
-  DELETE<code>/api/posts/:id</code>: Deletes post at given ID(hamburger place)<br>
-</div>
-
-<div class="row">
+  <h3> Vote (hamburger) PUT requests </h3>
   PUT<code>/api/posts/:id/vote</code>: Add's vote to post at given ID(hamburger place)<br>
   Acceptable Params:
   <li>vote[user_id]</li>
