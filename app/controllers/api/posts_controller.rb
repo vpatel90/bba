@@ -34,7 +34,7 @@ class Api::PostsController < ApplicationController
   end
 
   def vote
-    post = Post.find(params[:vote][:post_id])
+    post = Post.find(params[:id])
     vote = post.votes.build(vote_params)
     if vote.save
       render json: { message: "Success", status: 200 }
@@ -56,10 +56,10 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :pic)
+    params.require(:post).permit(:title, :description, :pic, :location, :user_id)
   end
 
   def vote_params
-    params.require(:vote).permit(:user_id, :post_id)
+    params.require(:vote).permit(:user_id)
   end
 end

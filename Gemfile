@@ -27,6 +27,8 @@ gem 'rails_admin'
 
 gem 'digest-sha3'
 
+gem 'materialize-sass'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
