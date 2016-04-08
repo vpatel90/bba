@@ -1,0 +1,51 @@
+
+
+<div class="row">
+  <div class="col s12">
+    <h3> Post (hamburger) GET requests </h3>
+    <code>/api/posts</code>: Access first page of posts (hamburgers)<br>
+    <code>/api/posts?page=2</code>: Access page by params (hamburgers)<br>
+    <code>/api/posts/:id</code>: Access post at ID (hamburgers)<br>
+    <h5> Sample response </h5>
+    <p> { <br>
+      id: <span class="value">16 </span>,<br>
+      title: <span class="value"> "Carry."</span>,<br>
+      description: <span class="value"> "Vhs farm-to-table cold-pressed mlkshk biodiesel paleo mixtape ethical chambray."</span>,<br>
+      pic: <span class="value"> "https://pigment.github.io/fake-logos/logos/medium/color/5.png"</span>,<br>
+      votes_count: <span class="value"> 14 </span>,<br>
+      created_at: <span class="value"> "2016-04-08T19:17:57.425Z"</span>,<br>
+      updated_at: <span class="value"> "2016-04-08T19:17:57.425Z"</span>,<br>
+      location: <span class="value"> "Ledner-Rippin"</span>,<br>
+      user_id: <span class="value"> 1 </span>,<br>
+    }</p>
+  </div>
+  <div class="col s12">
+    <h3> Post (hamburger) POST 😖requests </h3>
+    POST <code>/api/posts</code>: Add new post (hamburger place)<br>
+    Acceptable Params:
+    <p> { <br>
+      post[title]: <span class="value">Name of Burger </span>,<br>
+      post[description]: <span class="value"> Description of Burger</span>,<br>
+      post[location]: <span class="value"> Retaurant name</span>,<br>
+      post[pic]: <span class="value"> Pic URL</span>,<br>
+      post[user_id]: <span class="value"> User ID </span>,<br>
+    }</p>
+  </div>
+  <div class="col s12">
+    <h3> Post (hamburger) PUT requests </h3>
+    PUT<code>/api/posts/:id</code>: Edits post at given ID(hamburger place)<br>
+    Acceptable Params:
+    <p> { <br>
+      post[title]: <span class="value">Name of Burger </span>,<br>
+      post[description]: <span class="value"> Description of Burger</span>,<br>
+      post[location]: <span class="value"> Retaurant name</span>,<br>
+      post[pic]: <span class="value"> Pic URL</span>,<br>
+      post[user_id]: <span class="value"> User ID </span>,<br>
+    }</p>
+  </div>
+  <div class="col s12">
+    <h3> Post (hamburger) DELETE requests </h3>
+    DELETE<code>/api/posts/:id</code>: Deletes post at given ID(hamburger place)<br>
+  </div>
+</div>
+<hr/>

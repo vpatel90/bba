@@ -7,7 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="grey lighten-3">
+    <div class="nav-wrapper container">
+      <a href="/admin" class="brand-logo right">Admin</a>
+      <ul id="nav-mobile" class="left">
+        <li><a href="/">Post</a></li>
+        <li><a href="?show=user">User</a></li>
+        <li><a href="?show=vote">Vote</a></li>
+      </ul>
+    </div>
+  </nav>
 <div class="container">
+  <h1> Using BBA🍔 API </h1>
+  <small> POST = http requests, Post or post = model for hamburger </small>
+  <hr/>
   <%= yield %>
 </div>
 
