@@ -10,7 +10,8 @@
 20.times do
   Post.create(title: Faker::Hipster.sentence(1,false,3),
               description: Faker::Hipster.sentence(5,false,7),
-              pic: Faker::Company.logo)
+              pic: Faker::Company.logo,
+              location: Faker::Company.name)
 end
 
 200.times do
