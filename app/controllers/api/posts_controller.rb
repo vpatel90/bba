@@ -2,7 +2,8 @@ class Api::PostsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    render json: Post.order(votes_count: :DESC)
+    posts = Post.order(votes_count: :DESC).page params[:page]
+    render json: posts
   end
 
   def show
