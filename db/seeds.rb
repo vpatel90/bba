@@ -7,6 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+40.times do
+  User.create(name: Faker::Name.name, email: Faker::Internet.email , password_digest: Digest::SHA3.hexdigest("password"))
+end
+
 20.times do
   Post.create(title: Faker::Hipster.sentence(1,false,3),
               description: Faker::Hipster.sentence(5,false,7),
@@ -15,5 +19,5 @@
 end
 
 200.times do
-  Vote.create(post_id:Post.all.sample.id)
+  Vote.create(post_id:Post.all.sample.id, user_id:User.all.sample.id)
 end
