@@ -31,7 +31,18 @@ class Api::PostsController < ApplicationController
     render json: { message: "Invalid Input", status: 400 }, status: 400
   rescue ActiveRecord::RecordNotFound
     render json: { message: "Not found", status: 404 }, status: 404
+  end
 
+  def vote
+    post = Post.find(params[:id])
+    vote = post.votes.build(vote_params)
+    if vote.save
+      render json: { message: "Success", status: 200 }
+    else
+      render json: vote.errors.each {|error| error}
+    end
+  rescue ActiveRecord::RecordNotFound
+    render json: { message: "Not found", status: 404 }, status: 404
   end
 
   def destroy
@@ -45,6 +56,10 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :pic)
+    params.require(:post).permit(:title, :description, :pic, :location, :user_id)
+  end
+
+  def vote_params
+    params.require(:vote).permit(:user_id)
   end
 end
