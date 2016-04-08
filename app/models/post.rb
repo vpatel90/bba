@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  has_many :votes, dependent: :destroy, counter_cache: true
+  has_many :votes, dependent: :destroy
 
   validates :title, presence: true
 end

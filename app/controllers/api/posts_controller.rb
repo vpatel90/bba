@@ -6,19 +6,17 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    response = Post.find(params[:post][:id])
+    response = Post.find(params[:id])
     if response.nil?
       raise ActiveRecord::RecordNotFound
     end
-    render json: response.to_json(include: :comments)
+    render json: response
   rescue ActiveRecord::RecordNotFound
     render json: { message: "Not found", status: 404 }, status: 404
   end
 
   def create
-    post = Post.create(title: params[:post][:title],
-                       description: params[:post][:body],
-                       pic: params[:post][:pic])
+    post = Post.create(post_params)
     render json: post
   rescue ActiveRecord::RecordInvalid
     render json: { message: "Invalid Input", status: 400 }, status: 400
@@ -26,9 +24,7 @@ class Api::PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    post.update(title: params[:post][:title],
-                description: params[:post][:body],
-                pic: params[:post][:pic])
+    post.update(post_params)
     render json: post
   rescue ActiveRecord::RecordInvalid
     render json: { message: "Invalid Input", status: 400 }, status: 400
@@ -38,10 +34,16 @@ class Api::PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:post][:id])
+    post = Post.find(params[:id])
     post.destroy
     render json: { message: "Success", status: 200 }
   rescue ActiveRecord::RecordNotFound
     render json: { message: "Not found", status: 404 }, status: 404
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :description, :pic)
   end
 end
