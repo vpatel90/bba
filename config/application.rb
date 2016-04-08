@@ -27,7 +27,6 @@ module Bba
       'Access-Control-Request-Method' => '*',
       'Access-Control-Allow-Headers'  => 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
     }
-
     config.active_record.raise_in_transactional_callbacks = true
 
   end
