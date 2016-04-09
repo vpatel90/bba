@@ -25,7 +25,7 @@ module Bba
       'Access-Control-Allow-Origin'   => '*',
       'Access-Control-Allow-Methods'  => 'POST, PUT, DELETE, GET, OPTIONS',
       'Access-Control-Request-Method' => '*',
-      'Access-Control-Allow-Headers'  => 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+      'Access-Control-Allow-Headers'  => '*'
     }
     config.active_record.raise_in_transactional_callbacks = true
 

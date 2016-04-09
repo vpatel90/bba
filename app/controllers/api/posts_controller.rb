@@ -18,9 +18,13 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    post = Post.create(post_params)
-    render json: post
-  rescue ActiveRecord::RecordInvalid
+    post = Post.new(post_params)
+    if post.save
+      render json: post
+    else
+      render json: { message: "Invalid Input", status: 400 }, status: 400
+    end
+  rescue ActiveRecord::RecordInvalid, NoMethodError
     render json: { message: "Invalid Input", status: 400 }, status: 400
   end
 
