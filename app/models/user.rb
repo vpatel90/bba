@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :tracked_joints
+  has_many :tracked_joints ,dependent: destroy
   has_many :posts
   has_many :votes
 
