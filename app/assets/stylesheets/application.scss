@@ -16,7 +16,6 @@
  */
 @import "materialize";
 
-
 code {
   color: gray;
 }
@@ -26,6 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 nav{
+  transition: background-color 0.5s ease;
   a.brand-logo {
     color: #616161;
   }
@@ -33,6 +33,7 @@ nav{
     li {
       a {
         color: #616161;
+        transition: background-color .5s ease;
       }
     }
   }
