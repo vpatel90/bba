@@ -15,7 +15,9 @@
  *= require_self
  */
 @import "materialize";
-
+body{
+  background: rgba(33,33,33 ,0.1);
+}
 code {
   color: gray;
 }
