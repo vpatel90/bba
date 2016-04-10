@@ -47,11 +47,14 @@ class Api::PostsController < ApplicationController
   def vote
     post = Post.find(params[:id])
     vote = post.votes.build(vote_params)
+  rescue ActionController::ParameterMissing
+    vote = post.votes.build
     if vote.save
       render json: { message: "Success", status: 200 }
     else
       render json: vote.errors.each {|error| error}
     end
+
   rescue ActiveRecord::RecordNotFound
     render json: { message: "Not found", status: 404 }, status: 404
   end
