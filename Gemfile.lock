@@ -102,6 +102,7 @@ GEM
       pry (>= 0.9.10)
     puma (3.2.0)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-pjax (0.8.0)
       nokogiri (~> 1.5)
       rack (~> 1.1)
@@ -205,6 +206,7 @@ DEPENDENCIES
   pg (~> 0.15)
   pry-rails
   puma
+  rack-cors
   rails (= 4.2.6)
   rails_12factor
   rails_admin

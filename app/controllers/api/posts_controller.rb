@@ -7,14 +7,15 @@ class Api::PostsController < ApplicationController
       post_name = Post.where("title ~* '.*#{params[:search]}.*'")
       rest_name = Post.where("location ~* '.*#{params[:search]}.*'")
 
-      posts = post_name + rest_name
-      total_pages = (posts.size.to_f/5).ceil
-      render json: [{ totalPages: total_pages }, posts].flatten
+      posts = (post_name + rest_name)#.page params[:page]
+      #total_pages = (posts.size.to_f/5).ceil
+      #render json: [{ totalPages: total_pages }, posts].flatten
+      render json: posts
     else
-      total_pages = (Post.count.to_f/5).ceil
-      posts = Post.order(votes_count: :DESC).page params[:page]
-
-      render json: [{ totalPages: total_pages }, posts].flatten
+      #total_pages = (Post.count.to_f/5).ceil
+      posts = Post.order(votes_count: :DESC)#.page params[:page]
+      render json: posts
+      #render json: [{ totalPages: total_pages }, posts].flatten
     end
 
   end
