@@ -6,7 +6,7 @@ class Api::PostsController < ApplicationController
     total_pages = (Post.count.to_f/5).ceil
     posts = Post.order(votes_count: :DESC).page params[:page]
 
-    render json: [{total_pages: total_pages}, posts].flatten
+    render json: [{ total_pages: total_pages }, posts].flatten
   end
 
   def show
