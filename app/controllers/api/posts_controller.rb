@@ -3,10 +3,20 @@ class Api::PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    total_pages = (Post.count.to_f/5).ceil
-    posts = Post.order(votes_count: :DESC).page params[:page]
+    if params[:search]
+      post_name = Post.where("title ~* '.*#{params[:search]}.*'")
+      rest_name = Post.where("location ~* '.*#{params[:search]}.*'")
 
-    render json: [{ totalPages: total_pages }, posts].flatten
+      posts = post_name + rest_name
+      total_pages = (posts.size.to_f/5).ceil
+      render json: [{ totalPages: total_pages }, posts].flatten
+    else
+      total_pages = (Post.count.to_f/5).ceil
+      posts = Post.order(votes_count: :DESC).page params[:page]
+
+      render json: [{ totalPages: total_pages }, posts].flatten
+    end
+
   end
 
   def recent
