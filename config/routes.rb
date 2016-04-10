@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users
     resources :posts do
+      collection do
+        get 'recent'
+      end
       member do
         put 'vote'
+
       end
     end
   end

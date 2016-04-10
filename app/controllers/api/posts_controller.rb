@@ -9,6 +9,10 @@ class Api::PostsController < ApplicationController
     render json: [{ total_pages: total_pages }, posts].flatten
   end
 
+  def recent
+    render json: Post.order(created_at: :DESC).limit(3)
+  end
+
   def show
     response = Post.find(params[:id])
     if response.nil?
