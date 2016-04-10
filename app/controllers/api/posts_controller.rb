@@ -3,10 +3,10 @@ class Api::PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    totalPages = (Post.count.to_f/5).ceil
+    total_pages = (Post.count.to_f/5).ceil
     posts = Post.order(votes_count: :DESC).page params[:page]
 
-    render json: [{ total_pages: totalPages }, posts].flatten
+    render json: [{ totalPages: total_pages }, posts].flatten
   end
 
   def recent
