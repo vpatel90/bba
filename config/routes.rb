@@ -9,7 +9,7 @@ Rails.application.routes.draw do
         get 'recent'
       end
       member do
-        put 'vote'
+        post 'vote'
 
       end
     end
