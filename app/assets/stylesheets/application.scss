@@ -46,3 +46,19 @@ nav{
   font-weight: 300;
   color: gray;
 }
+
+@keyframes changeColors {
+  from {
+    color: red;
+  }
+
+
+
+  to {
+    color: blue;
+  }
+}
+.live-site {
+  animation: changeColors 5s infinite;
+  animation-direction: alternate-reverse;
+}
